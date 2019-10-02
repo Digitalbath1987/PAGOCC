@@ -1,0 +1,45 @@
+﻿.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(180,180,180,0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 600ms ease-in;
+    -moz-transition: opacity 600ms ease-in;
+    transition: opacity 600ms ease-in;
+    pointer-events: none;
+}
+
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .modalDialog > div {
+        width: 50%;
+        height: 70%;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: #fff;
+        top: 0px;
+        left: -21px;
+    }
+
+.DataGridFixedHeader {
+    position: relative;
+    top: expression(this.offsetParent.scrollTop-3); /*this works fine with IE only, but FireFox seems to be ignoring this*/
+}
+
+.scrolling-table-container {
+    height: 378px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

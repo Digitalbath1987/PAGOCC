@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="pagoCC2._1.Home" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Pagos de CC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="/PagoCC/Content/css_menu.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-default sidebar" role="navigation">
+       
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>      
+    </div>
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+<li>
+<div class="article text-center">
+<small class="hidden-xs">
+<img src="/PagoCC/Imagenes/Logo_Menu.png"  class="img-thumbnail" alt="Cinque Terre"/>
+</small>
+</div>
+
+
+
+<div style="text-align: center">
+
+<strong>
+Bienvenido:<br />
+<asp:Label ID="lblnombre" runat="server" Text="Nombre"></asp:Label>
+</strong>
+</div>
+
+
+
+
+
+</li>
+<li class="active"><a href="/PagoCC/Home.aspx"  data-toggle="tooltip"  title="HOME">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity fas fa-home"></span></a></li>
+       
+
+<li class="dropdown">
+<a href="#" id="Registrar" runat="server" class="dropdown-toggle" title="Solicitudes" data-toggle="dropdown">Pago de CC<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fas fa-hand-holding-usd"></span></a>
+<ul class="dropdown-menu forAnimate" role="menu">
+<li><a href="/PagoCC/PagoCC/Registrar_Pago.aspx">Registrar</a></li>
+<li><a href="/PagoCC/PagoCC/MisSolicitudes.aspx">Mis Solicitudes <span class="badge">
+    <asp:Label ID="lblMis_Solicitudes" runat="server" ></asp:Label></span></a></li>
+</ul>
+</li>
+
+
+
+<li class="dropdown">
+<a href="" id="Finanzas" runat="server" class="dropdown-toggle" title="Finanzas" data-toggle="dropdown">Finanzas<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs fas fa-chart-line"></span></a>
+<ul class="dropdown-menu forAnimate" role="menu">
+<li><a href="/PagoCC/Finanzas/Solicitudes_Finanzas.aspx">Solicitudes<span class="badge">
+    <asp:Label ID="lblsolfinanzas" runat="server" ></asp:Label></span>
+    <span class="badge">
+    <asp:Label ID="lblPendinteCheq" runat="server" ></asp:Label></span>
+
+
+    </a></li>
+
+</ul>
+</li>
+
+
+
+<li class="dropdown">
+<a href="" id="Auditoria" runat="server" class="dropdown-toggle" title="Auditoria" data-toggle="dropdown">Auditoria<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fas fa-file-signature"></span></a>
+<ul class="dropdown-menu forAnimate" role="menu">
+<li><a href="/PagoCC/Auditoria/Solicitudes_Auditoria.aspx">Solicitudes<span class="badge">
+    <asp:Label ID="lblsolauditor" runat="server" ></asp:Label></span></a></li>
+</ul>
+</li>
+
+
+<li class="dropdown">
+<a href="" id="Mantenedor" runat="server"  class="dropdown-toggle" title="Mantenedor" data-toggle="dropdown">Mantenedor<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fas fa-cogs"></span></a>
+<ul class="dropdown-menu forAnimate" role="menu">
+<li><a href="/PagoCC/Mantenedor/Usuarios.aspx">Crear Usuario</a></li>
+<li><a href="/PagoCC/Mantenedor/Cod_Empresa.aspx">Codigo Empresas</a></li>
+<li><a href="/PagoCC/Mantenedor/Eliminar_Registro.aspx">Eliminar Registro</a></li>
+<li><a href="/PagoCC/Mantenedor/Exportar_Registros.aspx">Exportar Registros</a></li>
+</ul>
+</li>
+
+
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" title="Terminar Sesion" data-toggle="dropdown">Sesion<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fas fa-sign-in-alt"></span></a>
+<ul class="dropdown-menu forAnimate" role="menu">
+<li><a  onclick="cerrarsesion" href="/PagoCC/Default.aspx">Cerrar Sesion</a></li>
+<li><a href="/PagoCC/CambiarPass.aspx">Cambiar contraseña</a></li>
+</ul>
+</li>     
+
+
+</ul>
+
+
+</div>
+</div>
+</nav>
+
+    <div class="main"  style="background-color:lightblue;height:initial;width:initial;">
+
+
+        <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1"   runat="server">
+            </asp:ContentPlaceHolder>
+
+
+
+        </div>
+    </form>
+
+</div>
+
+
+
+ 
+
+</body>
+</html>
